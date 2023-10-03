@@ -1,0 +1,50 @@
+
+  <div class="card card-pink">
+    <div class="card-header">
+      <h5 class="card-title">Formulario</h5>
+    </div>
+    <form (submit)="guardarValorGlobal()">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="title">Tema</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="nuevoValor.title" name="title" placeholder="Ingresa el Tema">
+            </div></div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="content">Contenido</label>
+              <textarea id="content" class="form-control" [(ngModel)]="nuevoValor.content" name="content" placeholder="Ingresa el contenido"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <label class="ml-5">{{ datGuada }}</label>
+      </div>
+    </form>
+  </div>
+  <div class="card card-pink">
+    <div class="card-header">
+      <h5 class="card-title">Resultados</h5>
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+          <thead>
+            <tr>
+              <th>Tema</th>
+              <th>Valor Global</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of globalValues">
+              <td>{{ item.title }}</td>
+              <td>{{ item.content }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

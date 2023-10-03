@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "finderluzy": {
+      "hosting": {
+        "finderluzy": [
+          "finderluzy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "finderluzy"
+  }
+}
