@@ -12,7 +12,7 @@ export class FirebaseService {
   // Método para guardar datos en Firebase Firestore
   async guardarDatosEnFirebase(data: any) {
     if(data.id == ''){
-      return await addDoc(collection(this.firestore,'equiposvp'), {
+      return await addDoc(collection(this.firestore,'entradas'), {
         ccolor : (data.ccolor == '' ? '#FFFFFFF' : data.ccolor),
         title : data.title,
         citas : data.citas,
@@ -20,7 +20,7 @@ export class FirebaseService {
       });
     }
     else{
-      return await updateDoc(doc(this.firestore,'equiposvp', data.id), {
+      return await updateDoc(doc(this.firestore,'entradas', data.id), {
         ccolor : (data.ccolor == '' ? '#FFFFFFF' : data.ccolor),
         title : data.title,
         citas : data.citas,
@@ -30,11 +30,11 @@ export class FirebaseService {
   }
 
   async getData(){
-    const ref = collection(this.firestore,'equiposvp');
+    const ref = collection(this.firestore,'entradas');
     return await getDocs(ref);
   }
 
   async deleteItem(item: string){
-    await deleteDoc(doc(this.firestore, "equiposvp", item));
+    await deleteDoc(doc(this.firestore, "entradas", item));
   }
 }
