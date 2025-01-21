@@ -15,7 +15,7 @@ export class ResultadosTemaComponent implements OnInit, OnDestroy {
   firebaseService = inject(FirebaseService);
 
   ngOnInit(){
-    this.globalValues$ = this.firebaseService.getDatos();
+    //this.globalValues$ = this.firebaseService.getDatos();
     // let data = await this.firebaseService.getData();
     // data.forEach((doc) => {
     //   this.globalValues.push({title: doc.data()["title"], content: doc.data()["content"] });
@@ -25,7 +25,7 @@ export class ResultadosTemaComponent implements OnInit, OnDestroy {
     };
     this.dtTrigger.next(null);
   }
-  
+
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }

@@ -10,20 +10,25 @@ import { DataTablesModule } from 'angular-datatables';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { PipeCustomPipe } from './services/pipe-custom.pipe';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewTemaComponent,
-    ResultadosTemaComponent
+    ResultadosTemaComponent,
+    PipeCustomPipe,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Agrega FormsModule aquí
-    DataTablesModule, 
-    provideFirebaseApp(() => initializeApp(environment.firebase)), 
+    DataTablesModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

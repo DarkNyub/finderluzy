@@ -27,6 +27,7 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/adminlte.min.css",
+              "src/assets/css/fontawesome-free/css/all.min.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
             "scripts": [
@@ -43,7 +44,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

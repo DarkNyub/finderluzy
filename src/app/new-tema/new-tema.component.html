@@ -4,24 +4,44 @@
       <h5 class="card-title">Formulario</h5>
     </div>
     <form (submit)="guardarValorGlobal()">
+      <input type="hidden" id="id" class="form-control" [(ngModel)]="nuevoValor.id" name="id">
       <div class="card-body">
         <div class="row">
-          <div class="col-6">
+          <div class="col-1">
             <div class="form-group">
-              <label for="title">Tema</label>
-              <input type="text" id="title" class="form-control" [(ngModel)]="nuevoValor.title" name="title" placeholder="Ingresa el Tema">
-            </div></div>
-          <div class="col-6">
-            <div class="form-group">
-              <label for="content">Contenido</label>
-              <textarea id="content" class="form-control" [(ngModel)]="nuevoValor.content" name="content" placeholder="Ingresa el contenido"></textarea>
+              <label for="ccolor">CC</label>
+              <input type="color" id="ccolor" class="form-control" [(ngModel)]="nuevoValor.ccolor" name="ccolor">
+              <select name="valuecolor" id="valuecolor" [(ngModel)]="faus" (change)="asinColor()">
+                <option *ngFor="let items of this.stringcolorsa" value="{{ items }}" [style.background-color]="items"></option>
+              </select>
             </div>
           </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="title">Título</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="nuevoValor.title" name="title" placeholder="Ingresa el Título">
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="citas">Citas/Palabras Claves</label>
+              <input type="text" id="citas" class="form-control" [(ngModel)]="nuevoValor.citas" name="citas" placeholder="Citas y/o Palabras Claves">
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="content">Links</label>
+              <textarea id="content" class="form-control" [(ngModel)]="nuevoValor.content" name="content" placeholder="Ingresa el/los link(s)"></textarea>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label class="d-block" for="content">&nbsp;</label>
+              <button type="submit" class="btn btn-outline-danger">Guardar</button>
+            </div>
+          </div>
+          <label class="ml-5">{{ datGuada }}</label>
         </div>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <label class="ml-5">{{ datGuada }}</label>
       </div>
     </form>
   </div>
@@ -30,18 +50,28 @@
       <h5 class="card-title">Resultados</h5>
     </div>
     <div class="card-body">
-      <div class="container">
-        <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <div class="">
+        <table class="table table-bordered table-sm table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
           <thead>
             <tr>
-              <th>Tema</th>
-              <th>Valor Global</th>
+              <th class="" style="width:5%;">CC</th>
+              <th class="" style="width:30%;">Título</th>
+              <th class="" style="width:30%;">Citas/Palabras Claves</th>
+              <th class="" style="width:25%;">Links</th>
+              <th class="" style="width:10%;"></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of globalValues">
+              <td class="text-center"><i class="fa fa-2x fa-500px rounded-circle" [style.background-color]="item.ccolor"></i></td>
               <td>{{ item.title }}</td>
-              <td>{{ item.content }}</td>
+              <td>{{ item.citas }}</td>
+              <td><span *ngFor="let osa of item.content.split(' '); let i = index"><a class="btn btn-outline-warning btn-sm ml-2 mb-2" target="_blank" href="{{ osa }}">Link #{{ i }}</a></span></td>
+              <td>
+                <button class="btn btn-xs btn-outline-danger ml-3 mr-3" (click)="editarItem(item)">Editar</button>
+                <button class="btn btn-xs btn-outline-dark ml-3 mr-3" [swal]="{ title: 'Borrar', text : '¿Estas segura?',showCancelButton: true }"
+                (confirm)="deleteItem(item.id)">Borrar</button>
+              </td>
             </tr>
           </tbody>
         </table>

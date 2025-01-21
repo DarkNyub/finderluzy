@@ -7,4 +7,5 @@ export const environment = {
     apiKey: 'AIzaSyCFe3f49FtHC5uNtqV8JDZRs05JEjwOm_Y',
     authDomain: 'finderluzy.firebaseapp.com',
     messagingSenderId: '554925423172',
+    experimentalForceLongPolling: true,
   },};

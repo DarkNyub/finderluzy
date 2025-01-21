@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc, getDocs, query } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc, getDocs, query, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,10 +11,22 @@ export class FirebaseService {
 
   // Método para guardar datos en Firebase Firestore
   async guardarDatosEnFirebase(data: any) {
-    return await addDoc(collection(this.firestore,'entradas'), {
-      title : data.title,
-      content : data.content
-    });
+    if(data.id == ''){
+      return await addDoc(collection(this.firestore,'entradas'), {
+        ccolor : (data.ccolor == '' ? '#FFFFFFF' : data.ccolor),
+        title : data.title,
+        citas : data.citas,
+        content : data.content
+      });
+    }
+    else{
+      return await updateDoc(doc(this.firestore,'entradas', data.id), {
+        ccolor : (data.ccolor == '' ? '#FFFFFFF' : data.ccolor),
+        title : data.title,
+        citas : data.citas,
+        content : data.content
+      });
+    }
   }
 
   async getData(){
@@ -22,9 +34,7 @@ export class FirebaseService {
     return await getDocs(ref);
   }
 
-  getDatos(){
-    const referencia = collection(this.firestore, "entradas");
-    let q = query(referencia);
-    return collectionData(q) as unknown as Observable<any>;
+  async deleteItem(item: string){
+    await deleteDoc(doc(this.firestore, "entradas", item));
   }
 }

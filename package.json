@@ -24,6 +24,7 @@
     "@ckeditor/ckeditor5-engine": "^39.0.2",
     "@ckeditor/ckeditor5-utils": "^39.0.2",
     "@ckeditor/ckeditor5-watchdog": "^39.0.2",
+    "@sweetalert2/ngx-sweetalert2": "^12.2.0",
     "angular-datatables": "^16.0.0",
     "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.11.3",
@@ -32,6 +33,7 @@
     "ngx-summernote": "^1.0.0",
     "rxjs": "~7.8.0",
     "summernote": "^0.8.20",
+    "sweetalert2": "^11.7.31",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
