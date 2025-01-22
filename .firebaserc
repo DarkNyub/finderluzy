@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "inoutequiposvp-5b126"
-  }
+    "default": "inoutequiposvp-5b126",
+    "inoutequipos-5b126": "inoutequiposvp-5b126"
+  },
+  "targets": {},
+  "etags": {}
 }
