@@ -1,4 +1,8 @@
 {
+  "projects": {
+    "default": "finderluzy",
+    "inouteuiposvp": "inoutequiposvp-5b126"
+  },
   "targets": {
     "finderluzy": {
       "hosting": {
@@ -8,7 +12,5 @@
       }
     }
   },
-  "projects": {
-    "default": "finderluzy"
-  }
+  "etags": {}
 }

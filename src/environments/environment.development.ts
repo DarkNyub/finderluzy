@@ -1,11 +1,11 @@
 export const environment = {
   firebase: {
-    projectId: 'finderluzy',
-    appId: '1:554925423172:web:95849be8b724a981eb1a11',
+    projectId: 'inoutequiposvp-5b126',
+    appId: "1:5342576939:web:86a5991993169ada8c456e",
     databaseURL: 'https://finderluzy-default-rtdb.firebaseio.com',
-    storageBucket: 'finderluzy.appspot.com',
-    apiKey: 'AIzaSyCFe3f49FtHC5uNtqV8JDZRs05JEjwOm_Y',
-    authDomain: 'finderluzy.firebaseapp.com',
-    messagingSenderId: '554925423172',
-    experimentalForceLongPolling: true
+    storageBucket: "inoutequiposvp-5b126.firebasestorage.app",
+    apiKey: 'AIzaSyBkNwJHmmjUueogs6uvOS3_ePMxCHEeG6Q',
+    authDomain: 'inoutequiposvp-5b126.firebaseapp.com',
+    messagingSenderId: "5342576939",
+    experimentalForceLongPolling: true,
   },};
