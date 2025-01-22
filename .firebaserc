@@ -1,4 +1,8 @@
 {
+  "projects": {
+    "default": "finderluzy",
+    "finderluzy": "finderluzy"
+  },
   "targets": {
     "finderluzy": {
       "hosting": {
@@ -8,7 +12,5 @@
       }
     }
   },
-  "projects": {
-    "default": "finderluzy"
-  }
+  "etags": {}
 }
